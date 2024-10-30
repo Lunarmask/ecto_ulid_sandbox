@@ -1,6 +1,8 @@
 defmodule UlidTest.Accounts.User do
   use UlidTest.Schema
 
+  @primary_key {:id, Cubecto.Type, autogenerate: true}
+  @foreign_key_type Cubecto.Type
   schema "users" do
     field :name, :string
 

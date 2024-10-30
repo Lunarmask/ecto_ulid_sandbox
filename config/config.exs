@@ -13,12 +13,12 @@ config :ulid_test,
 
 config :ulid_test, UlidTest.Repo,
   types: UlidTest.PostgrexTypes,
-  migration_primary_key: [name: :id, type: :ulid],
-  migration_foreign_key: [column: :id, type: :ulid]
+  migration_primary_key: [name: :id, type: :cube],
+  migration_foreign_key: [column: :id, type: :cube]
 
 config :ecto,
-  primary_key_type: Ecto.ULID,
-  foreign_key_type: Ecto.ULID
+  primary_key_type: Cubecto.Type,
+  foreign_key_type: Cubecto.Type
 
 # Configures the endpoint
 config :ulid_test, UlidTestWeb.Endpoint,
