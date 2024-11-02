@@ -1,8 +1,8 @@
-# Ecto Ulid Sandbox
+# Ecto ULID Sandbox
 
-This sandbox application is designed to showcase [**ULID**](https://github.com/ulid/spec) style UUIDs being used as the
-Primary Table Key within a phoenix application. It's as barebones as can-be, adding just what's needed on top of a
-`phx.new` application.
+This sandbox application is designed to showcase a native implementation of [**ULID**](https://github.com/ulid/spec) style UUIDs
+being used as the Primary Table Key within a phoenix application. It's as barebones as can-be, adding just what's needed on top
+of a `phx.new` application.
 
 It uses this awesome PostgreSQL extension in order to accomplish this on the database side:
 
@@ -37,6 +37,14 @@ The Ecto.ULID module handles the ulid field data as a String, as that's the form
 The Ecto.ULID module auto-generates a valid ULID upon persisting new %Structs{}. But does NOT do so when using
 Repo functions that bypass callbacks such as `Repo.insert_all/3`.
 
+You can have your elixir app autogenerate the ULID value upon insert, or you can have postgres autogenerate the ULID upon insert.
+
+<hr>
+
+Implementation woes were catalogued here:
+
+- https://elixirforum.com/t/postgrex-extension-no-function-clause-matching-error-in-custom-postgrextypes/67110
+
 <hr>
 
 Various resources were used as inspiration and research, credit goes to them.
@@ -45,7 +53,7 @@ Various resources were used as inspiration and research, credit goes to them.
 
 - https://github.com/andrielfn/pg-ulid -- (PostgreSQL ULID Extension)
 
-- https://github.com/ibarchenkov/cubecto -- (Postgrex.Extension -- Used as reference to make one for the pg-ulid extension)
+- https://github.com/ibarchenkov/cubecto -- (Postgrex.Extension -- Used as reference to make the pg-ulid extension)
 
 - https://github.com/woylie/ecto_ulid -- (Elixir Ecto Type -- needed to be modified to be used with the pg-ulid extension)
 

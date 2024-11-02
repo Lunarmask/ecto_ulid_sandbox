@@ -20,7 +20,7 @@ defmodule Ecto.ULID do
   Casts a string to ULID.
   """
   @impl true
-  def cast(<<_::bytes-size(26)>> = value) when is_bitstring(value) do
+  def cast(<<_::bytes-size(26)>> = value) do
     if valid?(value) do
       {:ok, value}
     else
@@ -44,14 +44,14 @@ defmodule Ecto.ULID do
   The application should treat the value from the database as a string
   """
   @impl true
-  def load(<<_::bytes-size(26)>> = value) when is_bitstring(value), do: {:ok, value}
+  def load(<<_::bytes-size(26)>> = value), do: {:ok, value}
   def load(_), do: :error
 
   @doc """
   The database should handle the conversion of ulid to uuid-binary
   """
   @impl true
-  def dump(<<_::bytes-size(26)>> = value) when is_bitstring(value), do: {:ok, value}
+  def dump(<<_::bytes-size(26)>> = value), do: {:ok, value}
   def dump(_), do: :error
 
   @impl true
