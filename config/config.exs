@@ -13,7 +13,7 @@ config :ulid_test,
 
 config :ulid_test, UlidTest.Repo,
   types: UlidTest.PostgrexTypes,
-  migration_primary_key: [name: :id, type: :ulid],
+  migration_primary_key: [name: :id, type: :ulid, default: {:fragment, "gen_ulid()"}],
   migration_foreign_key: [column: :id, type: :ulid]
 
 config :ecto,
